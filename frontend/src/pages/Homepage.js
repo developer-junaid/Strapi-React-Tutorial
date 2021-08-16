@@ -14,6 +14,10 @@ const GET_REVIEWS = gql`
       body
       rating
       id
+      categories {
+        name
+        id
+      }
     }
   }
 `;
@@ -41,7 +45,9 @@ const Homepage = () => {
           <div key={review.id} className="review-card">
             <div className="rating">{review.rating}</div>
             <h2>{review.title}</h2>
-            <small>console list</small>
+            {review.categories.map((cat) => (
+              <small key={cat.id}>{cat.name}</small>
+            ))}{" "}
             <p>{review.body.substring(0, 200)}...</p>
             <Link to={`details/${review.id}`}>Read more</Link>
           </div>
