@@ -4,6 +4,9 @@ import React from "react";
 // Hooks
 import { useParams } from "react-router-dom";
 
+// Markdown
+import ReactMarkdown from "react-markdown";
+
 // Query
 const GET_REVIEW = gql`
   query GetReview($id: ID!) {
@@ -49,7 +52,7 @@ const ReviewDetails = () => {
       {data.review.categories.map((cat) => (
         <small key={cat.id}>{cat.name}</small>
       ))}
-      <p>{data.review.body}</p>
+      <ReactMarkdown>{data.review.body}</ReactMarkdown>
     </div>
   );
 };
