@@ -30,6 +30,12 @@ a {
   padding-bottom: 10px;
   border-bottom: 2px solid;
 }
+.site-header .categories {
+  text-align: right;
+}
+.site-header .categories a {
+  margin-left: 10px;
+}
 
 /* review list */
 .review-card {
@@ -38,7 +44,6 @@ a {
   padding: 1px 20px 20px 90px;
   position: relative;
 }
-
 .review-card .rating {
   position: absolute;
   top: -20px;
@@ -50,11 +55,9 @@ a {
   text-align: center;
   color: white;
 }
-
 .review-card h2 {
   margin-bottom: 0;
 }
-
 .review-card small {
   margin-right: 10px;
   color: #777;

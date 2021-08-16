@@ -60,6 +60,37 @@ const {loading, error, data} = useQuery(QUERY_NAME, {
 })
 ```
 
+---
+
+#### Making Relational data
+
+- Go to strapi admin panel
+- Select contenty type
+- Create `category` collection of type text and add 3 fields
+
+---
+
+- Go to content type builder
+- Select Review Content type
+- Click add another field to this collection
+- Select `Relation`
+- field name `category`
+- Select `Category` from dropdown
+- Select type of relation `many to many relation`
+- Field name `reviews`
+
+---
+
+- Put each review in a category
+- Select Reviews
+- Select individual review
+- Choose categories for it
+
+---
+
+- Go to settings > roles > public
+- select find and findone for category
+
 ### Install Dependencies
 
 ```

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "reviews",
   "info": {
-    "name": "review"
+    "name": "review",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,11 @@
     "body": {
       "type": "richtext",
       "required": true
+    },
+    "categories": {
+      "collection": "category",
+      "via": "reviews",
+      "dominant": true
     }
   }
 }
