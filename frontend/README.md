@@ -41,6 +41,25 @@
 - - send query `const {loading, error, data} = useQuery(REVIEWS)`
 - - data will be inside `data.reviews`
 
+---
+
+- Single Record Query
+
+```
+const QUERY_NAME = gql`
+    query Name($id: ID!){
+        name(id: $id) {
+            fields ...
+        }
+    }
+`
+
+
+const {loading, error, data} = useQuery(QUERY_NAME, {
+    variables: {id: id}
+})
+```
+
 ### Install Dependencies
 
 ```

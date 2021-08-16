@@ -1,8 +1,20 @@
+import { useQuery, gql } from "@apollo/client";
 import React from "react";
 
 // Hooks
 import { useParams } from "react-router-dom";
-import useFetch from "./../hooks/useFetch";
+
+// Query
+const GET_REVIEW = gql`
+  query GetReview($id: ID!) {
+    review(id: $id) {
+      title
+      body
+      rating
+      id
+    }
+  }
+`;
 
 // Details
 const ReviewDetails = () => {
@@ -10,8 +22,9 @@ const ReviewDetails = () => {
   const { id } = useParams();
 
   // Get Single Review
-  const url = `http://localhost:1337/reviews/${id}`;
-  const { data, error, loading } = useFetch(url);
+  const { data, error, loading } = useQuery(GET_REVIEW, {
+    variables: { id: id },
+  });
 
   // Loading
   if (loading) {
@@ -26,12 +39,12 @@ const ReviewDetails = () => {
   // Return
   return (
     <div className="review-card">
-      <div className="rating">{data.rating}</div>
-      <h2>{data.title}</h2>
+      <div className="rating">{data.review.rating}</div>
+      <h2>{data.review.title}</h2>
 
       <small>console list</small>
 
-      <p>{data.body}</p>
+      <p>{data.review.body}</p>
     </div>
   );
 };
