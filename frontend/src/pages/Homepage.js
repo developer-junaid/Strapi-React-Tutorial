@@ -3,6 +3,9 @@ import React from "react";
 // Graphql
 import { useQuery, gql } from "@apollo/client";
 
+// Markdown
+import ReactMarkdown from "react-markdown";
+
 // Link
 import { Link } from "react-router-dom";
 
@@ -47,8 +50,8 @@ const Homepage = () => {
             <h2>{review.title}</h2>
             {review.categories.map((cat) => (
               <small key={cat.id}>{cat.name}</small>
-            ))}{" "}
-            <p>{review.body.substring(0, 200)}...</p>
+            ))}
+            <ReactMarkdown>{review.body.substring(0, 200)}</ReactMarkdown>
             <Link to={`details/${review.id}`}>Read more</Link>
           </div>
         ))}

@@ -3,6 +3,9 @@ import React from "react";
 // Apollo
 import { useQuery, gql } from "@apollo/client";
 
+// Markdown
+import ReactMarkdown from "react-markdown";
+
 // Router
 import { useParams, Link } from "react-router-dom";
 
@@ -40,13 +43,13 @@ const Category = () => {
 
   // Error
   if (error) {
-    return <p>Error :(</p>;
+    return <p>Error :</p>;
   }
 
   // Return
   return (
     <div>
-      <h2>{data.category.name}</h2>
+      <h2>{data && data.category.name}</h2>
       {data &&
         data.category.reviews &&
         data.category.reviews.map((review) => (
@@ -58,8 +61,8 @@ const Category = () => {
               <small key={cat.id}>{cat.name}</small>
             ))}
 
-            <p>{review.body.substring(0, 200)}...</p>
-            <Link to={`details/${review.id}`}>Read more</Link>
+            <ReactMarkdown>{review.body.substring(0, 200)}</ReactMarkdown>
+            <Link to={`/details/${review.id}`}>Read more</Link>
           </div>
         ))}
     </div>

@@ -94,5 +94,5 @@ const {loading, error, data} = useQuery(QUERY_NAME, {
 ### Install Dependencies
 
 ```
-npm i @apollo/client graphql
+npm i @apollo/client graphql react-markdown
 ```
